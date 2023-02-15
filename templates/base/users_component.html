@@ -1,0 +1,23 @@
+ <div class="participants">
+   {% if page == 'article' %}
+          <h3 class="participants__top">Likes <span>({{users.count}} Likes)</span></h3>
+   {% else %}
+          <h3 class="participants__top">Subscribers <span>({{users.count}} Subscribers)</span></h3>
+   {% endif %}
+          <div class="participants__list scroll">
+
+          {% for user in users %}
+            <a href="{% url 'profile-user' user.id %}" class="participant">
+              <div class="avatar avatar--medium">
+<!--                <img src="https://randomuser.me/api/portraits/men/37.jpg" />-->
+                <img src="https://randomuser.me/api/portraits/women/76.jpg" />
+              </div>
+              <p>
+                {{user.username}}
+                <span>@{{user.username}}</span>
+              </p>
+            </a>
+          {% endfor %}
+
+          </div>
+        </div>

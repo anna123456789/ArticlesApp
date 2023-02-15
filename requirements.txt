@@ -1,0 +1,8 @@
+django
+social-auth-app-django
+djangorestframework
+python-dotenv
+authlib
+django-cors-headers
+social-auth-core
+python-jose

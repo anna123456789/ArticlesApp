@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Best Articles</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+
+<body>
+
+    <h1>Great Articles</h1>
+
+    <div id="articles-container">
+
+    </div>
+
+</body>
+
+<script>
+    let articlesContainer = document.getElementById('articles-container')
+
+    let getArticles = async () => {
+        let response = await fetch('http://127.0.0.1:8000/api/articles/')
+
+<!--        console.log('RESPONSE: ', response)-->
+
+        let articles = await response.json()
+
+<!--        console.log('RESPONSE: ', articles)-->
+
+        for (let i = 0; articles.length > i; i++) {
+            let article = articles[i]
+
+            let row = `<div>
+                            <h3>${article.name}</h3>
+                        </div>`
+
+            articlesContainer.innerHTML += row
+        }
+    }
+
+    getArticles()
+</script>
+
+</html>
